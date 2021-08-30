@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+
+  <title>Vue.js To-Do App</title>
+</head>
+
+<body>
+
+  <div id="app" class="container">
+    {{ message }}
+
+    <form v-on:submit.prevent="addItem">
+      <input type="text" name="title" v-model="itemTitle">
+      <!--
+        type="submit" fires an event where on line 19 the handler "v-on-submit"
+        listens to the submit and calls the defined function
+      -->
+      <button type="submit">Add</button>
+    </form>
+
+    <ul>
+      <!-- 1st version -->
+      <!-- <li v-for="item in toDoItems" v-bind:key="item.id">
+        {{ item.title }} - {{ item.isCompleted }}
+      </li> -->
+
+      <!-- 2nd version -->
+      <!-- <li v-for="item in toDoItems" v-bind:key="item.id">
+        <span v-bind:class="{ 'is-completed': item.isCompleted }">{{ item.title }}</span>
+        <input type="checkbox" id="checkbox" v-model="item.isCompleted">
+      </li> -->
+    </ul>
+  </div>
+
+
+  <!-- load Vue.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+  <!-- component logic goes in here -->
+  <script>
+    var app = new Vue({                     // initialize new instance of a Vue object
+      el: '#app',                           // Vue attaches itself to this dom element (el) called #app
+      data: {                               // the Vue instance accepts a object attribute called data
+        message: "Tugce Nur's Todo app",    // the data attribute accepts a key called message, with the value stated,
+        itemTitle: "",
+        toDoItems: [
+          {
+            id: 1,
+            title: "Make ToDo app",
+            isCompleted: false
+          },
+          {
+            id: 2,
+            title: "Fill ToDo App with content",
+            isCompleted: false
+          },
+        ]
+      },
+      methods: {
+        addItem() {
+          this.toDoItems.push({
+            id: this.toDoItems.length + 1,
+            title: this.itemTitle,
+            isCompleted: false
+          });
+          this.itemTitle = "";              // clear input field after adding new item
+        },
+      }
+    })
+  </script>
+</body>
+
+</html>
