@@ -22,30 +22,24 @@
         type="submit" fires an event where on line 19 the handler "v-on-submit"
         listens to the submit and calls the defined function
       -->
+
+      <!-- 5th version -->
+      <ul>
+        <li v-for="(cat, index) in categories"><input type="radio" v-model="selectedCat" v-bind:value="index">{{ cat }}
+        </li>
+      </ul>
       <button type="submit">Add</button>
     </form>
 
     <ul>
-      <!-- 1st version -->
-      <!-- <li v-for="item in toDoItems" v-bind:key="item.id">
-        {{ item.title }} - {{ item.isCompleted }}
-      </li> -->
-
-      <!-- 2nd version
-      <li v-for="item in toDoItems" v-bind:key="item.id">
-        <span v-bind:class="{ 'is-completed': item.isCompleted }">{{ item.title }}</span>
-        <input type="checkbox" id="checkbox" v-model="item.isCompleted">
-      </li> -->
-
-      <!-- 3nd version -->
-      <!-- <li v-for="(item, index) in toDoItems" v-bind:key="item.id">
+      <!-- 5th version -->
+      <!-- add tags -->
+      <li v-for="(item, index) in toDoItems" v-bind:key="item.id">
         <span v-bind:class="{ 'is-completed': item.isCompleted }">{{ item.title }}</span>
         <input type="checkbox" id="checkbox" v-model="item.isCompleted">
         <button v-bind:disabled="!item.isCompleted" @click="deleteItem(index)">Delete!</button>
-      </li> -->
-
-      <!-- 4nd version -->
-      <!-- reset all -->
+        <span>{{ categories[item.category] }}</span>
+      </li>
     </ul>
   </div>
 
@@ -64,14 +58,17 @@
           {
             id: 1,
             title: "Make ToDo app",
-            isCompleted: false
+            isCompleted: false,
+            category: 1
           },
           {
             id: 2,
             title: "Fill ToDo App with content",
-            isCompleted: false
+            isCompleted: false,
+            category: 2
           },
         ],
+        categories: ['work', 'home', 'gegel'],
         selectedCat: 0
       },
       methods: {
