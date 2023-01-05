@@ -27,22 +27,28 @@
 
     <ul>
       <!-- 1st version -->
-      <!-- <li v-for="item in toDoItems" v-bind:key="item.id">
-        {{ item.title }} - {{ item.isCompleted }}
-      </li> -->
-
-      <!-- 2nd version
+      <!--
       <li v-for="item in toDoItems" v-bind:key="item.id">
+        {{ item.title }} - {{ item.isCompleted }}
+      </li> 
+      -->
+
+      <!-- 2nd version-->
+      <!--
+        <li v-for="item in toDoItems" v-bind:key="item.id">
         <span v-bind:class="{ 'is-completed': item.isCompleted }">{{ item.title }}</span>
         <input type="checkbox" id="checkbox" v-model="item.isCompleted">
-      </li> -->
+      </li> 
+      -->
 
       <!-- 3nd version -->
-      <!-- <li v-for="(item, index) in toDoItems" v-bind:key="item.id">
+      <!--
+      <li v-for="(item, index) in toDoItems" v-bind:key="item.id">
         <span v-bind:class="{ 'is-completed': item.isCompleted }">{{ item.title }}</span>
         <input type="checkbox" id="checkbox" v-model="item.isCompleted">
         <button v-bind:disabled="!item.isCompleted" @click="deleteItem(index)">Delete!</button>
-      </li> -->
+      </li>
+      -->
 
       <!-- 4nd version -->
       <!-- reset all -->
