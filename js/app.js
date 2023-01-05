@@ -6,16 +6,16 @@ var app = new Vue({                     // initialize new instance of a Vue obje
         message: "Tugce Nur's Todo app",    // the data attribute accepts a key called message, with the value stated,
         itemTitle: "",
         toDoItems: [
-        {
-            id: 1,
-            title: "Make ToDo app",
-            isCompleted: false
-        },
-        {
-            id: 2,
-            title: "Fill ToDo App with content",
-            isCompleted: false
-        },
+            {
+                id: 1,
+                title: "Make ToDo app",
+                isCompleted: false
+            },
+            {
+                id: 2,
+                title: "Fill ToDo App with content",
+                isCompleted: false
+            },
         ],
         selectedCat: 0
     },
