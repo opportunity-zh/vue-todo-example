@@ -1,8 +1,10 @@
 // component logic goes in here
 
-var app = new Vue({                     // initialize new instance of a Vue object
-    el: '#app',                           // Vue attaches itself to this dom element (el) with the id "app"
-    data: {                               // the Vue instance accepts a object attribute called data
+const { createApp } = Vue
+
+createApp({
+    data() {
+      return {
         message: "Tugce Nur's Todo app",    // the data attribute accepts a key called message, with the value stated,
         itemTitle: "",
         toDoItems: [
@@ -18,7 +20,8 @@ var app = new Vue({                     // initialize new instance of a Vue obje
             },
         ],
         selectedCat: 0
-    },
+      }
+    }, 
     methods: {
         
         addItem() {
@@ -35,4 +38,4 @@ var app = new Vue({                     // initialize new instance of a Vue obje
             this.toDoItems.splice(index, 1)
         }
     }
-})
+}).mount('#app')

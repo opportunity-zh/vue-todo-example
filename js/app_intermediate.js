@@ -1,29 +1,31 @@
 // component logic goes in here 
 
-var app = new Vue({                     // initialize new instance of a Vue object
-    el: '#app',                           // Vue attaches itself to this dom element (el) called #app
-    data: {                               // the Vue instance accepts a object attribute called data
-    message: "Tugce Nur's Todo app",    // the data attribute accepts a key called message, with the value stated,
-    itemTitle: "",
-    toDoItems: [
-        {
-            id: 1,
-            title: "Make ToDo app",
-            isCompleted: false,
-            category: 1
-        },
-        {
-            id: 2,
-            title: "Fill ToDo App with content",
-            isCompleted: false,
-            category: 2
-        },
-    ],
-    categories: ['work', 'home', 'gegel'],
-    selectedCat: 0
-    },
-    methods: {
+const { createApp } = Vue
 
+createApp({
+    data() {
+      return {
+        message: "Tugce Nur's Todo app",    // the data attribute accepts a key called message, with the value stated,
+        itemTitle: "",
+        toDoItems: [
+            {
+                id: 1,
+                title: "Make ToDo app",
+                isCompleted: false,
+                category: 1
+            },
+            {
+                id: 2,
+                title: "Fill ToDo App with content",
+                isCompleted: false,
+                category: 2
+            },
+        ],
+        categories: ['work', 'home', 'gegel'],
+        selectedCat: 0
+      }
+    }, 
+    methods: {        
         addItem() {
             this.toDoItems.push({
             id: this.toDoItems.length + 1,
@@ -38,4 +40,5 @@ var app = new Vue({                     // initialize new instance of a Vue obje
             this.toDoItems.splice(index, 1)
         }
     }
-})
+}).mount('#app')
+
